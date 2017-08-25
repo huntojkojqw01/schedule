@@ -1,0 +1,27 @@
+<table>
+	<thead>
+		<tr>
+			<th></th>
+			<% cas.each.with_index do |ca,i|%>
+				<th>Ca <%=i+1%></th>			
+			<% end %>
+		</tr>
+	</thead>
+	<tbody>
+		<% ctys.each.with_index do |cty,i|%>
+			<tr><td colspan="10"></td></tr>
+			<% 0.upto(cty[2]) do |j| %>
+				<tr>
+					<td><%= j==0 ? i : nil %></td>
+					<% cty[3].each do	|list_svs|%>
+						<% if list_svs[j] %>
+							<td><%=list_svs[j][0]%></td>							
+						<% else %>
+							<td></td>					
+						<% end %>
+					<% end %>
+				</tr>
+			<% end %>				
+		<% end %>		
+	</tbody>
+</table>
